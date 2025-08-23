@@ -1,50 +1,223 @@
 <!DOCTYPE html>
-
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dzunnur Generation</title>
-    <link rel="icon" href="img/dzunnur.png" type="image/png" />
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sedang Dalam Perbaikan - Dzunnur Generation</title>
     <style>
-      /* ===== Base Styles ===== */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Poppins", sans-serif;
-      }
-
-  </head>
-  <body>
-    <!-- Header -->
-    <header id="header">
-      <div class="container nav-container">
-        <a href="#" class="logo">
-          <img src="img/dzunnur.png" alt="Logo" />
-          Dzunnur<span>Generation</span>
-        </a>
-        <div class="menu-toggle" id="menu-toggle">
-          <i class="fas fa-bars"></i>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            background-size: 400% 400%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            animation: gradientBG 15s ease infinite;
+            overflow: hidden;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .container {
+            text-align: center;
+            max-width: 800px;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 1s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .logo {
+            margin-bottom: 30px;
+        }
+        
+        .logo h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #fdbb2d;
+        }
+        
+        .maintenance-icon {
+            font-size: 5rem;
+            margin-bottom: 30px;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-30px); }
+            60% { transform: translateY(-15px); }
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+        
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .progress-container {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            margin: 30px 0;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            width: 75%;
+            height: 20px;
+            background: linear-gradient(90deg, #fdbb2d, #b21f1f);
+            border-radius: 10px;
+            animation: progressAnimation 6s infinite;
+        }
+        
+        @keyframes progressAnimation {
+            0% { width: 30%; }
+            50% { width: 80%; }
+            100% { width: 30%; }
+        }
+        
+        .countdown {
+            font-size: 1.5rem;
+            margin: 25px 0;
+            font-weight: bold;
+        }
+        
+        .countdown span {
+            padding: 10px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            margin: 0 5px;
+        }
+        
+        .social-links {
+            margin: 30px 0;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-info {
+            margin-top: 30px;
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            p {
+                font-size: 1rem;
+            }
+            
+            .maintenance-icon {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1>Dzunnur Generation</h1>
         </div>
-        <ul class="nav-links" id="nav-links">
-          <li><a href="#home">Beranda</a></li>
-          <li><a href="#about">Tentang</a></li>
-          <li><a href="#members">Ketua Bagian</a></li>
-          <li><a href="#contact">Kontak</a></li>
-        </ul>
-      </div>
-    </header>
+        
+        <div class="maintenance-icon">
+            <i>🔧</i>
+            <i>⚡</i>
+            <i>🛠️</i>
+        </div>
+        
+        <h2>Maaf, Situs Sedang Dalam Perbaikan</h2>
+        
+        <p>Kami sedang melakukan peningkatan untuk memberikan pengalaman yang lebih baik. Situs akan segera kembali online. Terima kasih atas pengertiannya.<br> - Firdy Ridho Fillah -</p>
+        
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+        
+        <div class="countdown">
+            <span id="hours">12</span>:
+            <span id="minutes">30</span>:
+            <span id="seconds">00</span>
+        </div>
+        
+        <div class="social-links">
+            <a href="https://www.instagram.com/dzunnur_generation?igsh=MXJ5eW16NTFsNDRoaw=="><i>📱</i> Instagram
+        
+        <div class="contact-info">
+            <p>Untuk kebutuhan mendesak, silakan hubungi kami di: <strong>email@contoh.com</strong></p>
+        </div>
+    </div>
 
-  </body>
+    <script>
+        // Hitung mundur 24 jam dari waktu sekarang
+        const countdown = () => {
+            const countDate = new Date().getTime() + 24 * 60 * 60 * 1000;
+            const now = new Date().getTime();
+            const gap = countDate - now;
+            
+            // Perhitungan waktu
+            const second = 1000;
+            const minute = second * 60;
+            const hour = minute * 60;
+            
+            // Hitung
+            const textHour = Math.floor(gap / hour);
+            const textMinute = Math.floor((gap % hour) / minute);
+            const textSecond = Math.floor((gap % minute) / second);
+            
+            // Update HTML
+            document.getElementById("hours").innerText = textHour < 10 ? "0" + textHour : textHour;
+            document.getElementById("minutes").innerText = textMinute < 10 ? "0" + textMinute : textMinute;
+            document.getElementById("seconds").innerText = textSecond < 10 ? "0" + textSecond : textSecond;
+        };
+        
+        // Jalankan setiap detik
+        setInterval(countdown, 1000);
+        
+        // Inisialisasi pertama kali
+        countdown();
+    </script>
+</body>
 </html>
