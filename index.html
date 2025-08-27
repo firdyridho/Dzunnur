@@ -814,4 +814,935 @@
 
         @media (max-width: 768px) {
             .menu-toggle {
-     
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .btn-container {
+                flex-direction: column;
+            }
+
+            .btn {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-content::after {
+                left: -10px !important;
+                right: auto !important;
+            }
+
+            .music-player {
+                bottom: 70px;
+                right: 10px;
+            }
+
+            .music-player.expanded {
+                width: calc(100% - 20px);
+                max-width: 300px;
+                border-radius: 25px;
+            }
+
+            .flashscreen-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .member-card,
+            .gallery-item {
+                min-width: 100%;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .logo img {
+                height: 40px;
+            }
+
+            .flashscreen-title {
+                font-size: 2rem;
+            }
+
+            .flashscreen-subtitle {
+                font-size: 1rem;
+            }
+
+            .loading-bar {
+                width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Flashscreen -->
+    <div class="flashscreen" id="flashscreen">
+        <img src="img/dzunnur.png" alt="Dzunnur Generation Logo" class="flashscreen-logo">
+        <h1 class="flashscreen-title">Dzunnur Generation</h1>
+        <p class="flashscreen-subtitle">Perjalanan penuh makna, kenangan indah, dan persahabatan yang abadi</p>
+        <div class="loading-bar">
+            <div class="loading-progress" id="loadingProgress"></div>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div class="loader-wrapper" id="loader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Particles Background -->
+    <div class="particles-container" id="particlesContainer"></div>
+
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <img src="img/dzunnur.png" alt="Logo" />
+                Dzunnur<span>Generation</span>
+            </a>
+
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#members">Ketua Bagian</a></li>
+                <li><a href="#gallery">Galeri</a></li>
+                <li><a href="#timeline">Perjalanan</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Selamat Datang di Website <br />Dzunnur Generation</h1>
+            <p>
+                Sebuah perjalanan penuh makna, kenangan indah, dan persahabatan yang
+                abadi. Mari kita jelajahi kembali momen-momen berharga bersama.
+            </p>
+            <div class="btn-container">
+                <a href="#about" class="btn">Jelajahi</a>
+                <a href="#gallery" class="btn btn-outline">Lihat Galeri</a>
+            </div>
+        </div>
+
+        <!-- Floating Elements for Background Animation -->
+        <div class="floating-elements">
+            <div
+                class="floating-element"
+                style="
+                    width: 50px;
+                    height: 50px;
+                    top: 20%;
+                    left: 10%;
+                    animation: float 8s ease-in-out infinite;
+                "
+            ></div>
+            <div
+                class="floating-element"
+                style="
+                    width: 30px;
+                    height: 30px;
+                    top: 60%;
+                    left: 80%;
+                    animation: float 6s ease-in-out infinite reverse;
+                "
+            ></div>
+            <div
+                class="floating-element"
+                style="
+                    width: 40px;
+                    height: 40px;
+                    top: 70%;
+                    left: 15%;
+                    animation: float 10s ease-in-out infinite;
+                "
+            ></div>
+            <div
+                class="floating-element"
+                style="
+                    width: 60px;
+                    height: 60px;
+                    top: 30%;
+                    left: 75%;
+                    animation: float 7s ease-in-out infinite reverse;
+                "
+            ></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tentang Angkatan</h2>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Cerita Singkat Perjalanan Kita</h3>
+                    <p>
+                        Angkatan kita masuk pada tahun 2019 lulus pada tahun 2025, di masa
+                        yang penuh tantangan namun justru itulah yang membuat kita semakin
+                        kuat dan kompak. Dengan semangat kebersamaan, kita telah melalui
+                        banyak hal bersama.
+                    </p>
+                    <p>
+                        Dari kegiatan akademik hingga non-akademik, kita selalu mendukung
+                        satu sama lain. Prestasi yang kita raih adalah bukti nyata dari
+                        kerja keras kita.
+                    </p>
+                    <p>
+                        Website ini hadir sebagai kenang-kenangan dan pengingat akan
+                        indahnya perjalanan kita bersama. Semoga persaudaraan kita terus
+                        terjalin erat meski waktu dan jarak memisahkan.
+                    </p>
+                    <br />
+                    <p><b>- Dzunnur Generation -</b></p>
+                </div>
+
+                <div class="about-image">
+                    <img src="kenangan/3.jpg" alt="About Us" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Members Section -->
+    <section class="section members" id="members">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ketua Bagian</h2>
+            </div>
+
+            <div class="members-grid">
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="img/alban.jpg" alt="Member" />
+                    </div>
+                    <div class="member-info">
+                        <h3>Albani Reyhan Ahmad Fathullah</h3>
+                        <div class="member-role">Ketua Angkatan</div>
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/albanryhnn_?utm_source=ig_web_button_share_sheet&igsh=ajNqeGJ0dTRraDhl"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="img/nuhdia.jpg" alt="Member" />
+                    </div>
+                    <div class="member-info">
+                        <h3>Nuhdia Ainda</h3>
+                        <div class="member-role">Wakil Ketua</div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="img/rizwan.jpg" alt="Member" />
+                    </div>
+                    <div class="member-info">
+                        <h3>Rizwan Faujan</h3>
+                        <div class="member-role">Ketua Osis</div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="img/zahid.jpg" alt="Member" />
+                    </div>
+                    <div class="member-info">
+                        <h3>Zahid Noor El-Adly</h3>
+                        <div class="member-role">Ketua Coordinator</div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="img/firdy.jpg" alt="Member" />
+                    </div>
+                    <div class="member-info">
+                        <h3>Firdy Ridho Fillah</h3>
+                        <div class="member-role">Sekretaris Osis</div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="img/rangga.jpg" alt="Member" />
+                    </div>
+                    <div class="member-info">
+                        <h3>Moch. Rangga Rahayu</h3>
+                        <div class="member-role">Sekretaris Coordinator</div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="img/ahdan.jpg" alt="Member" />
+                    </div>
+                    <div class="member-info">
+                        <h3>Tb. Muhammad Fathul Ahdan</h3>
+                        <div class="member-role">Ketua Keamanan</div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="img/akbar.jpg" alt="Member" />
+                    </div>
+                    <div class="member-info">
+                        <h3>Abdillah Akbar</h3>
+                        <div class="member-role">Ketua Pengajaran</div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="img/irfan.jpg" alt="Member" />
+                    </div>
+                    <div class="member-info">
+                        <h3>Irfan Hasby</h3>
+                        <div class="member-role">Ketua Bahasa</div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="img/sigit.jpg" alt="Member" />
+                    </div>
+                    <div class="member-info">
+                        <h3>Sigit Kamseno Aji</h3>
+                        <div class="member-role">Ketua Ta'mier</div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="img/azmi.jpg" alt="Member" />
+                    </div>
+                    <div class="member-info">
+                        <h3>Tb. Muhammaz Azmi</h3>
+                        <div class="member-role">Ketua Olahraga</div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="img/robi.jpg" alt="Member" />
+                    </div>
+                    <div class="member-info">
+                        <h3>M Muhammad Abdul Robbi</h3>
+                        <div class="member-role">Ketua Laundry</div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="img/roy.jpg" alt="Member" />
+                    </div>
+                    <div class="member-info">
+                        <h3>Muhammad Ikhsan Maulana Rohis</h3>
+                        <div class="member-role">Ketua Perpustakaan</div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="img/nafis.jpg" alt="Member" />
+                    </div>
+                    <div class="member-info">
+                        <h3>Muhammad Nafis Adha</h3>
+                        <div class="member-role">Ketua Kebersihan</div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="img/furqon.jpg" alt="Member" />
+                    </div>
+                    <div class="member-info">
+                        <h3>Furqon Umaro Ibnu Sahib</h3>
+                        <div class="member-role">Ketua Penerangan</div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="img/ibel.jpg" alt="Member" />
+                    </div>
+                    <div class="member-info">
+                        <h3>Ibel Febriawan</h3>
+                        <div class="member-role">Ketua Kesehatan</div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Galeri Kenangan</h2>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="kenangan/1.jpg" alt="Gallery" />
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="kenangan/2.jpg" alt="Gallery" />
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="kenangan/3.jpg" alt="Gallery" />
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="kenangan/4.jpg" alt="Gallery" />
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="kenangan/6.jpg" alt="Gallery" />
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="kenangan/9.jpg" alt="Gallery" />
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="kenangan/7.jpg" alt="Gallery" />
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="kenangan/8.jpg" alt="Gallery" />
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="kenangan/5.jpg" alt="Gallery" />
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="section timeline-section" id="timeline">
+        <div class="container">
+            <div class="section-title">
+                <h2>Perjalanan Kita</h2>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Juli 2019</div>
+                        <h3>Masuk Pondok Pesantren Kun Karima</h3>
+                        <p>
+                            Pertama kali kita bertemu dan memulai perjalanan sebagai satu
+                            angkatan di Ponpes Kun Karima.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">April 2020</div>
+                        <h3>Covid-19</h3>
+                        <p>
+                            dimana kita di hadapkan dengan cobaan yang begitu berat yaitu
+                            wabah virus corona yang mengharuskan kita di pulangkan dan
+                            belajar di rumah masing masing.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Januari 2023</div>
+                        <h3>Kehilangan Teman</h3>
+                        <p>
+                            Tahun itu terasa berat karena Kehilangan teman teman yang
+                            memilih untuk gugur dalam perjuang dengan pindah keluar pondok.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Agustus 2024</div>
+                        <h3>Kenaikan Pengurus</h3>
+                        <p>
+                            Hari itu kita di angkat dan di berih amanah untuk menjadi
+                            pengurus di Pondok Pesantren Kun Karima.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Mei 2025</div>
+                        <h3>Haflah At-Takhrij</h3>
+                        <p>
+                            Hari kemenangan telah tiba setelah semua perjuangan yang telah
+                            kita lewati bersama susah senang kita hadapi bersama - sama.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Tentang Kami</h3>
+                    <p>
+                        Website ini didedikasikan untuk seluruh anggota angkatan Dzunnur
+                        Generation sebagai pengingat akan indahnya kebersamaan dan
+                        perjalanan yang kita lalui bersama.
+                    </p>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Tautan Cepat</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#about">Tentang</a></li>
+                        <li><a href="#members">Anggota</a></li>
+                        <li><a href="#gallery">Galeri</a></li>
+                        <li><a href="#timeline">Perjalanan</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Kontak Kami</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> Dzunnur@gmail.com</li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i> Pandeglang, Indonesia
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Ikuti Kami</h3>
+                    <div class="social-links">
+                        <a
+                            href="https://www.instagram.com/dzunnur_generation?igsh=MXJ5eW16NTFsNDRoaw=="
+                            ><i class="fab fa-instagram fa-2x"></i
+                        ></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2025 Dzunnur Generation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Music Player -->
+    <div class="music-player" id="musicPlayer">
+        <div class="music-info" id="musicInfo">Memutar: Hymne Dzunnur</div>
+        <div class="music-controls">
+            <button class="music-btn" id="prevBtn">
+                <i class="fas fa-step-backward"></i>
+            </button>
+            <button class="music-btn" id="playPauseBtn">
+                <i class="fas fa-play" id="playIcon"></i>
+            </button>
+            <button class="music-btn" id="nextBtn">
+                <i class="fas fa-step-forward"></i>
+            </button>
+            <button class="music-btn toggle-player" id="togglePlayer">
+                <i class="fas fa-music"></i>
+            </button>
+        </div>
+        <audio id="bgMusic" loop>
+            <!-- Ganti dengan URL lagu Anda -->
+            <source src="musik/lagu.m4a" type="audio/mpeg" />
+            Browser Anda tidak mendukung elemen audio.
+        </audio>
+    </div>
+
+    <script>
+        // Flashscreen functionality
+        document.addEventListener("DOMContentLoaded", function () {
+            const flashscreen = document.getElementById("flashscreen");
+            const loadingProgress = document.getElementById("loadingProgress");
+            const particlesContainer = document.getElementById("particlesContainer");
+            
+            // Create particles for background
+            function createParticles() {
+                const colors = ['rgba(255, 255, 255, 0.3)', 'rgba(52, 152, 219, 0.3)', 'rgba(231, 76, 60, 0.3)'];
+                
+                for (let i = 0; i < 50; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('particle');
+                    
+                    const size = Math.random() * 20 + 5;
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    particle.style.background = color;
+                    particle.style.left = `${Math.random() * 100}%`;
+                    particle.style.top = `${Math.random() * 100}%`;
+                    particle.style.animationDuration = `${Math.random() * 15 + 10}s`;
+                    particle.style.animationDelay = `${Math.random() * 5}s`;
+                    
+                    particlesContainer.appendChild(particle);
+                }
+            }
+            
+            // Simulate loading progress
+            let progress = 0;
+            const progressInterval = setInterval(() => {
+                progress += Math.random() * 10;
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(progressInterval);
+                    
+                    // Hide flashscreen after loading completes
+                    setTimeout(() => {
+                        flashscreen.classList.add("hidden");
+                    }, 500);
+                }
+                loadingProgress.style.width = `${progress}%`;
+            }, 200);
+            
+            createParticles();
+            
+            // Hide loader after page loads
+            setTimeout(() => {
+                document.getElementById("loader").style.opacity = "0";
+                setTimeout(() => {
+                    document.getElementById("loader").style.display = "none";
+                }, 500);
+            }, 1500);
+
+            // Navigation toggle
+            const menuToggle = document.getElementById("menu-toggle");
+            const navLinks = document.getElementById("nav-links");
+
+            menuToggle.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+                menuToggle.innerHTML = navLinks.classList.contains("active")
+                    ? '<i class="fas fa-times"></i>'
+                    : '<i class="fas fa-bars"></i>';
+            });
+
+            // Close mobile menu when clicking on links
+            document.querySelectorAll(".nav-links a").forEach((link) => {
+                link.addEventListener("click", () => {
+                    navLinks.classList.remove("active");
+                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                });
+            });
+
+            // Header scroll effect
+            const header = document.getElementById("header");
+
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 50) {
+                    header.classList.add("scrolled");
+                } else {
+                    header.classList.remove("scrolled");
+                }
+
+                // Back to top button visibility
+                const backToTop = document.getElementById("backToTop");
+                if (window.scrollY > 500) {
+                    backToTop.classList.add("visible");
+                } else {
+                    backToTop.classList.remove("visible");
+                }
+            });
+
+            // Music player functionality
+            const musicPlayer = document.getElementById("musicPlayer");
+            const togglePlayer = document.getElementById("togglePlayer");
+            const playPauseBtn = document.getElementById("playPauseBtn");
+            const playIcon = document.getElementById("playIcon");
+            const prevBtn = document.getElementById("prevBtn");
+            const nextBtn = document.getElementById("nextBtn");
+            const musicInfo = document.getElementById("musicInfo");
+            const bgMusic = document.getElementById("bgMusic");
+
+            let isMusicPlaying = false;
+            let isPlayerExpanded = false;
+
+            // Toggle player visibility
+            togglePlayer.addEventListener("click", () => {
+                if (isPlayerExpanded) {
+                    musicPlayer.classList.remove("expanded");
+                    musicPlayer.classList.add("hidden");
+                    setTimeout(() => {
+                        isPlayerExpanded = false;
+                    }, 300);
+                } else {
+                    musicPlayer.classList.remove("hidden");
+                    setTimeout(() => {
+                        musicPlayer.classList.add("expanded");
+                        isPlayerExpanded = true;
+                    }, 10);
+                }
+            });
+
+            // Play/Pause functionality
+            playPauseBtn.addEventListener("click", () => {
+                if (isMusicPlaying) {
+                    bgMusic.pause();
+                    playIcon.classList.remove("fa-pause");
+                    playIcon.classList.add("fa-play");
+                } else {
+                    bgMusic.play().catch((e) => {
+                        console.log("Autoplay prevented:", e);
+                    });
+                    playIcon.classList.remove("fa-play");
+                    playIcon.classList.add("fa-pause");
+                }
+                isMusicPlaying = !isMusicPlaying;
+            });
+
+            // Previous and Next buttons (placeholder functionality)
+            prevBtn.addEventListener("click", () => {
+                musicInfo.textContent = "Memutar: Lagu Sebelumnya";
+                setTimeout(() => {
+                    musicInfo.textContent = "Memutar: Lagu Kenangan Kita";
+                }, 2000);
+            });
+
+            nextBtn.addEventListener("click", () => {
+                musicInfo.textContent = "Memutar: Lagu Selanjutnya";
+                setTimeout(() => {
+                    musicInfo.textContent = "Memutar: Lagu Kenangan Kita";
+                }, 2000);
+            });
+
+            // Animate elements on scroll
+            const animateOnScroll = () => {
+                const memberCards = document.querySelectorAll(".member-card");
+                const galleryItems = document.querySelectorAll(".gallery-item");
+                const timelineItems = document.querySelectorAll(".timeline-item");
+
+                const isInViewport = (el) => {
+                    const rect = el.getBoundingClientRect();
+                    return (
+                        rect.top <=
+                            (window.innerHeight || document.documentElement.clientHeight) *
+                                0.9 && rect.bottom >= 0
+                    );
+                };
+
+                const run = () => {
+                    memberCards.forEach((card) => {
+                        if (isInViewport(card)) {
+                            card.classList.add("visible");
+                        }
+                    });
+
+                    galleryItems.forEach((item) => {
+                        if (isInViewport(item)) {
+                            item.classList.add("visible");
+                        }
+                    });
+
+                    timelineItems.forEach((item) => {
+                        if (isInViewport(item)) {
+                            item.classList.add("visible");
+                        }
+                    });
+                };
+
+                window.addEventListener("load", run);
+                window.addEventListener("resize", run);
+                window.addEventListener("scroll", run);
+
+                // Run once initially
+                run();
+            };
+
+            // Initialize animations
+            animateOnScroll();
+        });
+    </script>
+</body>
+</html>
